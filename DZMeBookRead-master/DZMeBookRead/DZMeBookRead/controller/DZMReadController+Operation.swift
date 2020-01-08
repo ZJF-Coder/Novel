@@ -411,7 +411,7 @@ extension DZMReadController {
         
         if recordModel != nil {
             
-            print("内容:+\(recordModel?.chapterModel.content)")
+//            print("内容:+\(recordModel?.chapterModel.content)")
             
             readModel.recordModel = recordModel
             
