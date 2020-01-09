@@ -74,7 +74,7 @@ class DZMReadViewController: DZMViewController {
             homeView = DZMReadHomeView()
             homeView.readModel = readModel
             view.addSubview(homeView)
-            homeView.frame = DZM_READ_VIEW_RECT
+            homeView.frame = UIScreen.main.bounds//DZM_READ_VIEW_RECT
             
         }else{
             
