@@ -55,6 +55,21 @@ extension DZMReadController {
             
             addChild(scrollController)
             
+        }else if DZMReadConfigure.shared().effectType == .pan { // 平移
+            
+            panController = DUAtranslationController()
+
+            panController.delegate = self
+
+            contentView.insertSubview(panController.view, at: 0)
+
+            panController.view.backgroundColor = UIColor.clear
+
+            panController.view.frame = contentView.bounds
+
+            panController.setViewController(viewController: ((displayController != nil ? displayController! : nil)!), direction: translationControllerNavigationDirection.right, animated: false, completionHandler: nil)
+
+
         }else{ // 覆盖 无效果
             
             if displayController == nil { return }
@@ -113,6 +128,16 @@ extension DZMReadController {
             
             scrollController = nil
         }
+        
+        if panController != nil {
+
+            panController?.view.removeFromSuperview()
+
+            panController?.removeFromParent()
+
+            panController = nil
+
+        }
     }
     
     /// 手动设置翻页(注意: 非滚动模式调用)
@@ -138,6 +163,14 @@ extension DZMReadController {
                 return
             }
             
+            // 平移
+            if panController != nil {
+
+                panController.setViewController(viewController: displayController!, direction: isAbove ? translationControllerNavigationDirection.left : translationControllerNavigationDirection.right, animated: animated, completionHandler: nil)
+
+                return
+            }
+            
             // 记录
             currentDisplayController = displayController
         }
@@ -160,6 +193,34 @@ extension DZMReadController {
     func coverController(_ coverController: DZMCoverController, willTransitionToPendingController pendingController: UIViewController?) {
         
         readMenu.showMenu(isShow: false)
+    }
+    
+    // MARK: -- 平行
+    func translationController(translationController: DUAtranslationController, controllerAfter controller: UIViewController) -> UIViewController? {
+        // 翻页累计
+        tempNumber += 1
+        // 获取当前页阅读记录
+        var recordModel:DZMReadRecordModel? = (controller as? DZMReadViewController)?.recordModel
+        recordModel = GetBelowReadRecordModel(recordModel: recordModel)
+        return GetReadViewController(recordModel: recordModel)
+    }
+
+    func translationController(translationController: DUAtranslationController, controllerBefore controller: UIViewController) -> UIViewController? {
+        // 翻页累计
+        tempNumber -= 1
+        // 获取当前页阅读记录
+        var recordModel:DZMReadRecordModel? = (controller as? DZMReadViewController)?.recordModel
+        recordModel = GetAboveReadRecordModel(recordModel: recordModel)
+        return GetReadViewController(recordModel: recordModel)
+    }
+
+    func translationController(translationController: DUAtranslationController, willTransitionTo controller: UIViewController) {
+        print("willTransitionTo")
+    }
+
+    func translationController(translationController: DUAtranslationController, didFinishAnimating finished: Bool, previousController: UIViewController, transitionCompleted completed: Bool) {
+        // 更新阅读记录
+        updateReadRecord(controller: currentDisplayController)
     }
     
     /// 获取上一个控制器

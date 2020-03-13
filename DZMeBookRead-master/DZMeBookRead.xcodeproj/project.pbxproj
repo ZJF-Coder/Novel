@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A88B40C241B702100590EA2 /* DUAtranslationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A88B40B241B702100590EA2 /* DUAtranslationController.swift */; };
 		78E1742477E493D2A08B778A /* libPods-DZMeBookRead.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8977687D62470B3DEEA5D35 /* libPods-DZMeBookRead.a */; };
 		AF0750AA228133CF00786ADF /* DZMReadHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0750A9228133CF00786ADF /* DZMReadHomeView.swift */; };
 		AF0750AC2281349D00786ADF /* DZMReadHomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0750AB2281349D00786ADF /* DZMReadHomeViewCell.swift */; };
@@ -104,6 +105,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A88B40B241B702100590EA2 /* DUAtranslationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DUAtranslationController.swift; path = DZMeBookRead/DZMeBookRead/other/thirdParty/DUAtranslationController.swift; sourceTree = SOURCE_ROOT; };
 		469BE7EAF78C6FE7A42D9D15 /* Pods-DZMeBookRead.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZMeBookRead.debug.xcconfig"; path = "Target Support Files/Pods-DZMeBookRead/Pods-DZMeBookRead.debug.xcconfig"; sourceTree = "<group>"; };
 		82F3611AAB71EB7252CA6517 /* Pods-DZMeBookRead.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZMeBookRead.release.xcconfig"; path = "Target Support Files/Pods-DZMeBookRead/Pods-DZMeBookRead.release.xcconfig"; sourceTree = "<group>"; };
 		AF0750A9228133CF00786ADF /* DZMReadHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DZMReadHomeView.swift; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 				AF48FB272266FA7500850378 /* FDFullscreenPopGesture */,
 				AF48FB2A2266FA7500850378 /* ASValueTrackingSlider */,
 				AF48FB2F2266FA7500850378 /* DZMBatteryView.swift */,
+				0A88B40B241B702100590EA2 /* DUAtranslationController.swift */,
 			);
 			path = thirdParty;
 			sourceTree = "<group>";
@@ -565,7 +568,6 @@
 				469BE7EAF78C6FE7A42D9D15 /* Pods-DZMeBookRead.debug.xcconfig */,
 				82F3611AAB71EB7252CA6517 /* Pods-DZMeBookRead.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -805,6 +807,7 @@
 				AF5306D42268740E0094EFB9 /* DZMRMTopView.swift in Sources */,
 				AF48FB412266FA7600850378 /* DZMTableView.swift in Sources */,
 				AF48FB632267322C00850378 /* DZMReadModel.swift in Sources */,
+				0A88B40C241B702100590EA2 /* DUAtranslationController.swift in Sources */,
 				AF487D8E2271BB34002CFAC9 /* DZMReadCatalogCell.swift in Sources */,
 				AF48FB372266FA7600850378 /* String+Extension.swift in Sources */,
 				AF4B3EAD2277F5EE00CEC375 /* UIPageViewController+Extension.swift in Sources */,
